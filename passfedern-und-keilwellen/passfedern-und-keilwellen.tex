@@ -1,0 +1,105 @@
+\section{Passfedern und Keilwellen}
+\subsection{Passfedern}
+\begin{vardef}
+	\item[$d$] Wellendruchmesser
+	\item[$b$] Passfederbreite
+	\item[$h$] Passfederhöhe
+	\item[$t_1$] Nuttiefe Welle
+	\item[$t_2$] Nuttiefe Narbe
+	\item[$P_\text{N}$] Pressung zwischen Passfeder und Narbe
+	\item[$P_\text{W}$] Pressung zwischen Passfeder und Welle
+	\item[$l$] Gesamtlänge der Passfeder
+	\item[$l_\text{tr}$] tragende Länge der Passfeder
+	\item[$\varphi$] Lastverteilungsfaktor (wie gleichmäßig werden die Passfedern belastet)
+	\item[$n$] Anzahl der Passfedern
+	\item[$F_\text{u}$] Umfangskraft
+	\item[$M$] Moment auf die Welle
+\end{vardef}
+
+\hrule
+% Beanspruchung der Narbe
+\begin{eeqn}{tragende Länge}
+	\begin{align}
+		&\text{rundstrinige Passfedern:}&\quad l &= l_\text{tr}+b \\
+		&\text{gradstirnige Passfedern:}&\quad l &= l_\text{tr}
+	\end{align}
+\end{eeqn}	
+
+% Pressung der Narbe auf die Passfeder
+\begin{eeqn}{Pressung der Narbe auf die Passfeder}
+	Wenn $l_\text{tr} \leq 1,5 \cdot d$:
+	\begin{align}
+		P_\text{N} &= \frac{2\cdot M}{(h-t_1) \cdot l_\text{tr} \cdot d}
+	\end{align}
+	$t_1$ aus Tabelle
+\end{eeqn}	
+
+% Pressung der Narbe auf die Passfeder
+\begin{eeqn}{Pressung der Welle auf die Passfeder}
+	Wenn $l_\text{tr} \leq 1,5 \cdot d$:
+	\begin{align}
+		P_\text{W} &= \frac{2\cdot M}{d\cdot l_\text{tr} \cdot t_1}
+	\end{align}
+	Es gilt der Grundsatz, dass Passfedern normalerweise auf die Belastungen in der Narbe ausgelegt werden. 
+\end{eeqn}
+
+\enlargethispage{\baselineskip}
+
+% Mehrere Passfedern
+\begin{eeqn}{mehrere Passfedern}
+	Wenn $l_\text{tr} \leq 1,5 \cdot d$:
+	\begin{align}
+		P_\text{N} &= \frac{2\cdot M}{(h-t_1)\cdot l_\text{tr} \cdot d \cdot \varphi \cdot n}
+	\end{align}
+	Für den Lastverteilungsfaktor gilt:
+	\begin{align*}
+		&n =2~: \quad \varphi =0,75\\
+		&n =3~: \quad \varphi =0,6\\
+	\end{align*}
+	Der Term $n \cdot \varphi$ konvergiert gegen den Wert 2. Die Erhöhung der Anzahl der Passfedern ist deshalb wenig effizient, wenn die tragende Länge $l_\text{tr}$ reduziert werden soll.
+\end{eeqn}
+
+% Scherung in der Passfeder
+\begin{eeqn}{Scherung in der Passfeder}
+	\begin{align}
+		\tau_\text{a} &= \frac{F_\text{u}}{b\cdot l_\text{tr}} = \frac{2\cdot M}{d\cdot b \cdot l_\text{tr}}
+	\end{align}
+	In der Regel ist die Berechnung der Scherspannung nicht erforderlich, da die wirkenden Pressungen viel größere sind.
+\end{eeqn}
+
+\subsection{Keilwellenverbindung}
+\begin{vardef}
+	\item[$h'$] tragende Höhe (Anteil der Höhe der Flanken, die die Drehmomente übertragen)
+	\item[$D$] Außendurchmesser der Keilwelle
+	\item[$d$] Innendurchmesser der Keilwelle
+	\item[$d_\text{m}$] Mittlerer Durchmesser der Keilwelle
+	\item[$L$] Verzahnte Länge der Keile
+	\item[$n$] Anzahl der Flanken
+\end{vardef}
+
+\hrule
+% tragende Höhe
+\begin{eeqn}{tragende Höhe}
+	\begin{align}
+		h' = 0,4 \cdot (D-d)
+	\end{align}
+\end{eeqn}
+
+% mittlerer Durchmesser
+\begin{eeqn}{Mittlerer Durchmesser}
+	\begin{align}
+		d_\text{m} &= \frac{D+d}{2}
+	\end{align}
+\end{eeqn}
+
+% Auf die Keile wirkende Pressung
+\begin{eeqn}{Auf die Keile wirkende Pressung}
+	\begin{align}
+		P &= \frac{2\cdot M}{d_\text{m} \cdot h' \cdot L \cdot n \cdot \varphi}
+	\end{align}
+	Für den Lastverteilungsfaktor gilt:
+	\begin{align*}
+		&\text{Flankenzentrierung}: \quad &\varphi &=0,9\\
+		&\text{Innenzentrierung}: \quad &\varphi &=0,75\\
+	\end{align*}
+\end{eeqn}

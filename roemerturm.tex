@@ -1,0 +1,125 @@
+\documentclass[a5paper,9pt,fleqn,twoside]{scrartcl}
+
+% packages
+\usepackage[ngerman]{babel}
+\usepackage[german]{fancyref}
+\usepackage{amsmath, amssymb}
+\usepackage[locale=DE]{siunitx}
+\usepackage{mdwlist}
+\usepackage{array}
+%\usepackage{scrpage2}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{footnote}
+\usepackage{caption}
+\usepackage{tabularx} 
+\usepackage{float}
+\usepackage{rotating}
+\usepackage{xcolor}
+\usepackage{environ}
+%\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+
+
+% setup
+\providecommand{\abs}[1]{\left| #1 \right|}
+\providecommand{\ergebnis}[1]{\begin{center}\framebox{#1}\end{center}}
+\providecommand{\errorterm}[2]{\ensuremath{\abs{\frac{\partial #2}{\partial #1}}\Delta #1}}
+\providecommand{\grad}[1]{\ensuremath{\text{grad}\;#1}}
+\providecommand{\degree}[0]{\ensuremath{\,^\circ}}
+\providecommand{\ohm}[0]{\ensuremath{\Omega}}
+\renewcommand{\epsilon}[0]{\varepsilon}
+
+
+\newenvironment{eeqn}[1]%
+% BEGIN 
+{%
+	\begin{minipage}{\textwidth}%
+	\begin{minipage}{0.35\linewidth}%
+		\begin{flushleft}\textbf{\sffamily #1}\end{flushleft}%
+	\end{minipage}%
+	\hspace{0.02\linewidth}%
+	\begin{minipage}{0.63\linewidth}%
+}%
+% END
+{%
+	\end{minipage}%
+	\\[8pt]%
+	\hrule%
+	\end{minipage}\\%
+}
+
+
+\NewEnviron{vardef}{
+	\colorbox{gray!30}{%
+	\begin{minipage}{0.98\linewidth}%
+	\textbf{\sffamily Nomenklatur}		
+	\begin{multicols}{2}%
+	\begin{description*}%
+		\BODY
+	\end{description*}%
+	\end{multicols}%
+	\end{minipage}%
+	}%
+	\vspace{10pt}
+}
+
+\sisetup{separate-uncertainty=true}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations} 
+\pgfplotsset{compat=1.3}
+
+% layout
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[final]{pdfpages}
+\parindent0pt
+\geometry{a5paper, twoside, left=20mm,right=10mm, top=15mm, bottom=20mm}
+\setlength{\mathindent}{0mm}
+\setlength{\columnseprule}{.4pt}
+
+% meta data 
+\title{Römerturm}
+\subject{Formelsammlung Konstruktionselemente}
+%\author{Stefan Bürgel \and Andreas Jendrzey}
+
+% kopf und fußzeile
+\renewcommand{\headrulewidth}{0.8pt}
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE,LO]{\leftmark}
+
+
+\begin{document}
+% Cover
+\thispagestyle{empty}
+\includepdf{cover.pdf}
+\cleardoublepage
+% Titelseite / Inhaltsverzeichnis
+\maketitle
+\setcounter{page}{1}
+\begin{multicols}{2}
+	\tableofcontents
+\end{multicols}
+	\pagebreak
+	\include{festigkeitslehre/festigkeitslehre}
+	\include{achsen-und-wellen/achsen-und-wellen}
+	\include{federn/federn}
+	\include{schrauben/schrauben}
+	\include{passfedern-und-keilwellen/passfedern-und-keilwellen}
+	\include{bolzen-und-stiftverbindungen/bolzen-und-stiftverbindungen}
+	\include{kupplungen/kupplungen}
+	\include{sonstiges/sonstiges}
+% Leere Seiten am Ende
+\pagestyle{empty}
+\clearpage
+\section*{ }
+\clearpage
+\section*{ }
+\end{document}

@@ -1,0 +1,41 @@
+\section{Achsen und Wellen}
+\subsection{Auslegung von Achsen}
+\hrule
+% erforderlicher Durchmesser
+\begin{eeqn}{erforderlicher Durchmesser}
+	\begin{flalign}
+		d_\text{erf} & = \sqrt[3]{\frac{32\cdot M_\text{B, max}}{\pi \cdot \sigma_\text{B,zul}}}
+	\end{flalign}
+	Wenn sich der erforderliche Durchmesser dynamisch zum momentanen Biegemoment bestimmt werden soll, ergibt sich für $d_\text{erf} = d_\text{erf}(x)$ und $M_\text{B}=M_\text{B}(x)$.
+\end{eeqn}
+
+\subsection{Auslegung von Wellen}
+\begin{vardef}
+	\item[$P$] Leistung, die die Welle überträgt.
+	\item[$\omega$] Winkelgeschwindigkeit.
+	\item[$n$] Drehzahl in $\text{min}^{-1}$
+	\item[$M_\text{v}$] Vergleichsmoment
+\end{vardef}
+\hrule
+% Drehzahl
+\begin{eeqn}{Drehzahl}
+	\begin{flalign}
+		\omega & = \frac{2\pi\cdot n}{60}
+	\end{flalign}
+\end{eeqn}
+
+% Drehmoment
+\begin{eeqn}{Drehmoment}
+	\begin{flalign}
+		M &= \frac{P}{\omega}
+	\end{flalign}
+\end{eeqn}
+
+% Vergleichsmoment / erforderlicher Durchmesser
+\begin{eeqn}{erforderlicher Durchmesser}
+	\begin{flalign}
+		& M_\text{v} = \sqrt{M_\text{B}^2+\frac{3}{4}\cdot M_\text{t}^2}\\
+		& d_\text{erf} = \sqrt[3]{\frac{32\cdot M_\text{v}}{\sigma_\text{zul} \cdot \pi}}
+	\end{flalign}
+	Die Wirkung von Torsion $M_\text{t}$ und Biegung $M_\text{B}$ werden im Vergleichsmoment $M_\text{v}$ kombiniert. 
+\end{eeqn}
