@@ -24,6 +24,8 @@
 \usepackage{enumitem}
 \usepackage{geometry}
 \usepackage{fancyhdr}
+\usepackage{prettyref}
+
 
 
 % setup
@@ -84,9 +86,13 @@
 \setlength{\columnseprule}{.4pt}
 
 % meta data 
-\title{Römerturm}
+\title{Römerturm Version 1.3}
 \subject{Formelsammlung Konstruktionselemente}
-%\author{Stefan Bürgel \and Andreas Jendrzey}
+
+\author{Stefan Bürgel \and Andreas Jendrzey \and Christoph Hansen \\ 
+Emailkontakt: uni@christophhansen.eu}
+
+\date{}
 
 % kopf und fußzeile
 \renewcommand{\headrulewidth}{0.8pt}
@@ -99,10 +105,13 @@
 \begin{document}
 % Cover
 \thispagestyle{empty}
-\includepdf{cover.pdf}
 \cleardoublepage
 % Titelseite / Inhaltsverzeichnis
 \maketitle
+
+
+\textcolor{red}{Ich erhebe keinen Anspruch auf Vollständigkeit oder Richtigkeit. Falls ihr Fehler findet oder etwas fehlt, dann meldet euch bitte über den Emailkontakt.}
+
 \setcounter{page}{1}
 \begin{multicols}{2}
 	\tableofcontents
