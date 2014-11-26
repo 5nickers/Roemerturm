@@ -58,30 +58,43 @@
 	\item[$z$] Gesamtzahl der Blätter.
 	\item[$z'$] Anzahl der Blätter mit der Gesamtlänge $L$.
 	\item[$s$] Dicke der Feder.
-	\item[$q_1$] Korrekturfaktor zur Berücksichtigung der Bauform
 	\item[$f$] Federweg
 \end{vardef}
 
-\begin{tabularx}{\textwidth}{m{15mm}m{17mm}m{20mm}m{20mm}XX}
-    \toprule
-		Typ & $b(x)$ & $W_\text{ax}(x)$ & $\sigma_\text{B}(x)$ & $\sigma_\text{B,max}$ & $q_1$ \\ \midrule
-		\includegraphics[width=15mm]{federn/blattfedern-rechteck} & const. & $\frac{b\cdot s^2}{6}$ & $\frac{6\cdot F \cdot x}{b\cdot s^2}$ & $\frac{6\cdot F \cdot L}{b \cdot s^2}$ & 4\\
-		\includegraphics[width=15mm]{federn/blattfedern-trapez} & $b'+\frac{x \cdot (b-b')}{L}$ & $\frac{s^2\cdot [b'+\frac{x}{L}(b-b')]}{6}$ & $\frac{6\cdot F \cdot x}{s^2[b'+\frac{x}{L}(b-b')]}$ & $\frac{6\cdot F \cdot L}{b \cdot s^2}$ & $\frac{12}{2+b'/b}$\\
-		\includegraphics[width=15mm]{federn/blattfedern-dreieck} & $\frac{x \cdot b}{L}$ & $\frac{b\cdot s^2 \cdot x}{6\cdot L}$ & $\frac{6\cdot F \cdot L}{b\cdot s^2}$ & $\frac{6\cdot F \cdot L}{b \cdot s^2}$ & 6\\
-    \bottomrule
+%\begin{tabularx}{\textwidth}{m{15mm}m{17mm}m{20mm}m{20mm}XX}
+%    \toprule
+%		Typ & $b(x)$ & $W_\text{ax}(x)$ & $\sigma_\text{B}(x)$ & $\sigma_\text{B,max}$ & $q_1$ \\ \midrule
+%		\includegraphics[width=15mm]{federn/blattfedern-rechteck} & const. & $\frac{b\cdot s^2}{6}$ & $\frac{6\cdot F \cdot x}{b\cdot s^2}$ & $\frac{6\cdot F \cdot L}{b \cdot s^2}$ & 4\\
+%		\includegraphics[width=15mm]{federn/blattfedern-trapez} & $b'+\frac{x \cdot (b-b')}{L}$ & $\frac{s^2\cdot [b'+\frac{x}{L}(b-b')]}{6}$ & $\frac{6\cdot F \cdot x}{s^2[b'+\frac{x}{L}(b-b')]}$ & $\frac{6\cdot F \cdot L}{b \cdot s^2}$ & $\frac{12}{2+b'/b}$\\
+%		\includegraphics[width=15mm]{federn/blattfedern-dreieck} & $\frac{x \cdot b}{L}$ & $\frac{b\cdot s^2 \cdot x}{6\cdot L}$ & $\frac{6\cdot F \cdot L}{b\cdot s^2}$ & $\frac{6\cdot F \cdot L}{b \cdot s^2}$ & 6\\
+%    \bottomrule
 \end{tabularx}
+
+\begin{tabular}{c|c|c|c}
+	& & & \\
+	 & Max. Biegesp. $\sigma_{b,max}$ & Max. Durchb. $f$ & Federrate $c$ \\ 
+	 \hline 
+	& & & \\
+ Rechteckfeder $b=b'$	& $\frac{6\cdot F \cdot L}{b \cdot s^2}$ & $4 \cdot \frac{F \cdot l^3}{E \cdot b \cdot s^3}$ & $\frac{b \cdot s^3 \cdot E}{4 \cdot l^3}$ \\ 
+	& & & \\
+ Trapezfeder	 & $\frac{6\cdot F \cdot L}{b \cdot s^2}$ & $4 \cdot X \cdot \frac{F \cdot l^3}{E \cdot b \cdot s^3}$ & $\frac{b \cdot s^3 \cdot E}{4 \cdot X \cdot l^3}$ \\ 
+	& & & \\
+ Dreiecksfeder $b'=0$	& $\frac{6\cdot F \cdot L}{b\cdot s^2}$ & $6 \cdot \frac{F \cdot l^3}{E \cdot b \cdot s^3}$ & $\frac{b \cdot s^3 \cdot E}{6 \cdot l^3}$ \\ 
+\end{tabular} 
+
+\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c}
+	\hline  
+ $b'/b$	& 0 & 0,1 & 0,2 & 0,3 & 0,4 & 0,5 & 0,6 & 0,7 & 0,8 & 0,9 & 1 \\ 
+	\hline  
+ $X$	& 1,5 & 1,39 & 1,315 & 1,25 & 1,202 & 1,16 & 1,121 & 1,085 & 1,054 & 1,025 & 1 \\ 
+	\hline 
+\end{tabular} 
+
 \\[10pt]
 \hrule
-% Federrate
-\begin{eeqn}{Federrate}
-	\begin{align}
-		c &= \frac{b\cdot s^3 \cdot E}{q_1 \cdot L^3}
-	\end{align}
-	Die Federrate ist eine Funktion der Geometrie ($q_1$, $b$ und $s$) und des Werkstoffs $E$.
-\end{eeqn}
 
 % Federweg
-\begin{eeqn}{Federweg}
+\begin{eeqn}{Federweg (\textcolor{red}{noch wichtig????})}
 	\begin{align}
 		f &= q_1 \cdot \frac{L^3}{b\cdot s^3}\cdot \frac{F}{E}
 	\end{align}
@@ -90,7 +103,7 @@
 % max. Federweg
 \begin{eeqn}{maximaler Federweg}
 	\begin{align}
-		f_\text{max} &= q_1 \cdot \sigma_\text{B,zul} \cdot \frac{L^2}{6 \cdot s \cdot E}
+		f_\text{max} &= X \cdot \sigma_\text{B,zul} \cdot \frac{2 \cdot l^2}{3 \cdot s \cdot E}
 	\end{align}
 \end{eeqn}
 
